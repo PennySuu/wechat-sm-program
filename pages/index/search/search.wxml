@@ -1,0 +1,8 @@
+<view class="container">
+  <view class="search">
+    <view class="search_input">
+      <input focus='true' auto-focus='true' placeholder='搜索亲友生日'></input>
+    </view>
+    <view class="search_back" bindtap="back">取消</view>
+  </view>
+</view>
