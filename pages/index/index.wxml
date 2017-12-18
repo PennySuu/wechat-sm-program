@@ -7,9 +7,9 @@
       </view>
     </navigator>
   </view>
-  <!-- 明星生日  -->
   <view class="item section">
-    <view class="section_star" wx:if="{{isShowStar}}">
+    <!-- 明星生日  -->
+    <view class="section_star" wx:if="{{isShowStar && stars.length}}">
       <view class="wrap">
         <view class="section_title section_star_title">
           <view class="section_star_star">明星生日 12.05</view>
@@ -18,31 +18,17 @@
       </view>
       <view class="section_star_scroll">
         <scroll-view class="scroll-view_H" scroll-x="true" bindscroll="scroll">
-          <view id="demo1" class="scroll-view-item_H">
+          <view class="scroll-view-item_H" wx:for="{{stars}}" wx:key="id">
             <view class="star">
               <view class="left">
                 <view class="info">
-                  <view class="name">阿信</view>
-                  <view class="job">男歌手</view>
+                  <view class="name">{{item.name}}</view>
+                  <view class="job">{{item.job}}</view>
                 </view>
                 <button size="mini" plain='true' class="bless">点赞送祝福</button>
               </view>
               <view class="right">
-                <image src="../../images/star1.jpg" mode="aspectFill"></image>
-              </view>
-            </view>
-          </view>
-          <view id="demo2" class="scroll-view-item_H">
-            <view class="star">
-              <view class="left">
-                <view class="info">
-                  <view class="name">唐嫣</view>
-                  <view class="job">女演员</view>
-                </view>
-                <button size="mini" plain='true' class="bless">点赞送祝福</button>
-              </view>
-              <view class="right">
-                <image src="../../images/star2.jpg" mode="aspectFill"></image>
+                <image src="{{item.head_picture}}" mode="aspectFill"></image>
               </view>
             </view>
           </view>
@@ -53,11 +39,11 @@
     <view class="section_history wrap">
       <view class="section_title section_history_title">历史上的今天</view>
       <view class="section_history_picture">
-        <image class="picture" src="../../images/history.jpg" mode="aspectFill"></image>
+        <image class="picture" src="{{history.cover_url}}" mode="aspectFill"></image>
       </view>
       <view class="section_history_rhesis">
         <view class="date">12/05</view>
-        <view class="rhesis">“人不抱希望是很傻的。”</view>
+        <view class="rhesis">“{{history.description}}”</view>
       </view>
     </view>
     <!--生日列表  -->
@@ -65,139 +51,21 @@
       <view class="section_birth section_birth_soon">
         <view class="section_birth_title">即将过生日</view>
         <view class="section_birth_list">
-          <view class="section_birth_item">
+          <view class="section_birth_item" wx:for="{{birthday}}" wx:key="id">
             <view class="section_birth_head">
-              <image src="../../images/head.jpg"></image>
+              <image src="{{item.avatar}}"></image>
             </view>
             <view class="section_birth_body">
               <view class="section_birth_info">
-                <view class="section_birth_name">老公公</view>
-                <view class="section_birth_date">十月廿二</view>
+                <view class="section_birth_name">{{item.name}}</view>
+                <view class="section_birth_date">{{item.birth}}</view>
               </view>
               <view class="section_birth_time">
                 <view class="section_birth_day">
-                  <view>4</view>
+                  <view>{{item.leftDay}}</view>
                   <view>天</view>
                 </view>
-                <view class="section_birth_age">距26岁生日</view>
-              </view>
-            </view>
-          </view>
-        </view>
-      </view>
-      <view class="section_birth section_birth_soon">
-        <view class="section_birth_title">近期过生日</view>
-        <view class="section_birth_list">
-          <view class="section_birth_item">
-            <view class="section_birth_head">
-              <image src="../../images/head1.jpg"></image>
-            </view>
-            <view class="section_birth_body">
-              <view class="section_birth_info">
-                <view class="section_birth_name">四哥</view>
-                <view class="section_birth_date">1月1日</view>
-              </view>
-              <view class="section_birth_time">
-                <view class="section_birth_day">
-                  <view>25</view>
-                  <view>天</view>
-                </view>
-                <view class="section_birth_age">距25岁生日</view>
-              </view>
-            </view>
-          </view>
-          <view class="section_birth_item">
-            <view class="section_birth_head">
-              <image src="../../images/head2.jpg"></image>
-            </view>
-            <view class="section_birth_body">
-              <view class="section_birth_info">
-                <view class="section_birth_name">曹新竹</view>
-                <view class="section_birth_date">冬月十七</view>
-              </view>
-              <view class="section_birth_time">
-                <view class="section_birth_day">
-                  <view>27</view>
-                  <view>天</view>
-                </view>
-                <view class="section_birth_age">距25岁生日</view>
-              </view>
-            </view>
-          </view>
-          <view class="section_birth_item">
-            <view class="section_birth_head">
-              <image src="../../images/head3.jpg"></image>
-            </view>
-            <view class="section_birth_body">
-              <view class="section_birth_info">
-                <view class="section_birth_name">苏甜</view>
-                <view class="section_birth_date">冬月十八</view>
-              </view>
-              <view class="section_birth_time">
-                <view class="section_birth_day">
-                  <view>28</view>
-                  <view>天</view>
-                </view>
-                <view class="section_birth_age">距下个生日</view>
-              </view>
-            </view>
-          </view>
-        </view>
-      </view>
-      <view class="section_birth section_birth_soon">
-        <view class="section_birth_title">一个月后生日</view>
-        <view class="section_birth_list">
-          <view class="section_birth_item">
-            <view class="section_birth_head">
-              <image src="../../images/head1.jpg"></image>
-            </view>
-            <view class="section_birth_body">
-              <view class="section_birth_info">
-                <view class="section_birth_name">四哥</view>
-                <view class="section_birth_date">1月1日</view>
-              </view>
-              <view class="section_birth_time">
-                <view class="section_birth_day">
-                  <view>25</view>
-                  <view>天</view>
-                </view>
-                <view class="section_birth_age">距25岁生日</view>
-              </view>
-            </view>
-          </view>
-          <view class="section_birth_item">
-            <view class="section_birth_head">
-              <image src="../../images/head2.jpg"></image>
-            </view>
-            <view class="section_birth_body">
-              <view class="section_birth_info">
-                <view class="section_birth_name">曹新竹</view>
-                <view class="section_birth_date">冬月十七</view>
-              </view>
-              <view class="section_birth_time">
-                <view class="section_birth_day">
-                  <view>27</view>
-                  <view>天</view>
-                </view>
-                <view class="section_birth_age">距25岁生日</view>
-              </view>
-            </view>
-          </view>
-          <view class="section_birth_item">
-            <view class="section_birth_head">
-              <image src="../../images/head3.jpg"></image>
-            </view>
-            <view class="section_birth_body">
-              <view class="section_birth_info">
-                <view class="section_birth_name">苏甜</view>
-                <view class="section_birth_date">冬月十八</view>
-              </view>
-              <view class="section_birth_time">
-                <view class="section_birth_day">
-                  <view>28</view>
-                  <view>天</view>
-                </view>
-                <view class="section_birth_age">距下个生日</view>
+                <view class="section_birth_age">距{{item.age > 0 ? item.age + '岁' : '下个'}}生日</view>
               </view>
             </view>
           </view>
@@ -205,4 +73,5 @@
       </view>
     </view>
   </view>
+  <navigator class="add" url="../add/add"></navigator>
 </view>

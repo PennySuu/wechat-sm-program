@@ -5,7 +5,8 @@
     "pages/group/group",
     "pages/find/find",
     "pages/mine/mine",
-    "pages/index/search/search"
+    "pages/index/search/search",
+    "pages/add/add"
   ],
   "window":{
     "backgroundTextStyle":"light",

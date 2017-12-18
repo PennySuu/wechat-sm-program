@@ -4,21 +4,52 @@ const app = getApp()
 
 Page({
   data: {
-    isShowStar: true
+    isShowStar: true,
+    stars: [],
+    history: null,
+    birthday: []
   },
   /**
  * 生命周期函数--监听页面加载
  */
-  onLoad: function (options) {
+  onLoad(options) {
+    const host = 'http://localhost:3000'
     wx.request({
-      url: 'http://localhost:3000/stars',
-      data:{
-        date:'1205'
+      url: `${host}/stars`,
+      data: {
+        date: '1205'
       },
-      success: function(res){
-        console.log(res)
+      success: (res) => {
+        this.setData({
+          stars: res.data
+        })
       }
     })
+    wx.request({
+      url: `${host}/history`,
+      data: {
+        date: '1205'
+      },
+      success: res => {
+        this.setData({
+          history: res.data[0]
+        })
+      }
+    })
+    wx.request({
+      url: `${host}/birthday`,
+      success: res => {
+        this.setData({
+          birthday: res.data
+        })
+      }
+    })
+  },
+  /**
+ * 生命周期函数--监听页面初次渲染完成
+ */
+  onReady: function () {
+    console.log(this.data)
   },
   handleHideStar: function () {
     this.setData({

@@ -196,3 +196,20 @@
 .section_birth_age {
   font-size: 24rpx;
 }
+
+.add {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background-color: #ff393a;
+  position: fixed;
+  bottom: 35rpx;
+  right: 45rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add::before{
+  content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAhElEQVRIS+2VwQ2AMAwD7U3YBEZgBEZhFEaBTToCGxil6gNeSR99EUtVP26inGKVGCz21Je0ArhJntF3vQ12K0yy3hFlA5dSIvoLIkkLgNmdFzCfKZLkyxJft0jSBMCOp60ZDs8IoJAsuaYuqUSUiL4EJA3/MmvaLaEu/GboWtNo0bfvASvYXRnB3JcFAAAAAElFTkSuQmCC')
+}
